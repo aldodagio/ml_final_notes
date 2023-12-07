@@ -1,0 +1,15 @@
+after web scraping, some cleaning needed to be done such as fixing the below snippet
+,,,,Passing,Rushing,Receiving,Fumbles
+Player,Bye,Pts*,Att,Cmp,Yds,TD,Int,2Pt,Att,Yds,TD,2Pt,Rec,Yds,TD,2Pt,FL,TD
+Arian FosterA. Foster,7,381.00,0,0,0,0,0,0,327,"1,616",16,0,66,604,2,0,2,0
+Tom BradyT. Brady,5,362.00,492,324,"3,900",36,4,0,31,30,1,0,0,0,0,0,1,0
+Aaron RodgersA. Rodgers,10,349.00,475,312,"3,922",28,11,0,64,356,4,0,0,0,0,0,1,0
+Peyton ManningP. Manning,7,346.00,679,450,"4,700",33,17,0,18,18,0,0,0,0,0,0,1,0
+Matt SchaubM. Schaub,7,288.00,574,365,"4,370",24,12,1,22,28,0,0,0,0,0,0,3,0
+LeSean McCoyL. McCoy,8,285.00,0,0,0,0,0,0,207,"1,080",7,0,78,592,2,0,1,0
+while player name is not that much of a concern, it is crucial for the predictions to compare
+but also is needed for other aspects of csv manipulation
+for example, we didn't want to run into the 'cold start' problem since there would potentially be rookies in the test data since we used 2021 and 2022 as the test data 
+we wouldnt have any info to make projections for these guys so we used pandas to get the intersection between the excel sheets to avoid that issue
+still we had some short comings so far such as the logic for fixing names; however, this was corrected by finding the last '.' in the string value and deleting everything from the character before that period to the end of the string, which left just the name
+the logic had to be special to avoid completely deleting names like D.K. or A.j.
